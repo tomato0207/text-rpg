@@ -1,0 +1,28 @@
+# Project: ±M®×1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = RPG.o
+LINKOBJ  = RPG.o
+LIBS     = -L"F:/c++/Dev-Cpp/MinGW64/lib" -L"F:/c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"F:/c++/Dev-Cpp/MinGW64/include" -I"F:/c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"F:/c++/Dev-Cpp/MinGW64/include" -I"F:/c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"F:/c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = RPG.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+RPG.o: RPG.cpp
+	$(CPP) -c RPG.cpp -o RPG.o $(CXXFLAGS)
